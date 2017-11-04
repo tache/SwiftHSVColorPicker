@@ -46,6 +46,9 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate, BrightnessViewDelega
             view.removeFromSuperview()
         }
         
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.orange.cgColor
+        
         let selectedColorViewHeight: CGFloat = 44.0
         let brightnessViewHeight: CGFloat = 26.0
         
@@ -58,18 +61,30 @@ open class SwiftHSVColorPicker: UIView, ColorWheelDelegate, BrightnessViewDelega
         // Init SelectedColorView subview
         selectedColorView = SelectedColorView(frame: CGRect(x: centeredX, y:0, width: colorWheelSize, height: selectedColorViewHeight), color: self.color)
         // Add selectedColorView as a subview of this view
+
+        selectedColorView.layer.borderWidth = 1
+        selectedColorView.layer.borderColor = UIColor.red.cgColor
+
         self.addSubview(selectedColorView)
         
         // Init new ColorWheel subview
         colorWheel = ColorWheel(frame: CGRect(x: centeredX, y: selectedColorView.frame.maxY, width: colorWheelSize, height: colorWheelSize), color: self.color)
         colorWheel.delegate = self
+
         // Add colorWheel as a subview of this view
+        colorWheel.layer.borderWidth = 1
+        colorWheel.layer.borderColor = UIColor.green.cgColor
+
         self.addSubview(colorWheel)
         
         // Init new BrightnessView subview
         brightnessView = BrightnessView(frame: CGRect(x: centeredX, y: colorWheel.frame.maxY, width: colorWheelSize, height: brightnessViewHeight), color: self.color)
         brightnessView.delegate = self
         // Add brightnessView as a subview of this view
+
+        brightnessView.layer.borderWidth = 1
+        brightnessView.layer.borderColor = UIColor.yellow.cgColor
+
         self.addSubview(brightnessView)
     }
     
